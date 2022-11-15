@@ -4,9 +4,9 @@ import { DayPicker } from 'react-day-picker';
 import { format } from 'date-fns';
 import useTitle from '../../../hooks/UseTitle';
 
-const AppointmentBanner = () => {
+const AppointmentBanner = ({selectedDate,setSelectedDate}) => {
     useTitle('Appointment')
-    const [selectedDate, setSelectedDate] = useState(new Date())
+    
 
     return (
         <header className='my-6'>
@@ -21,8 +21,7 @@ const AppointmentBanner = () => {
                         showOutsideDays 
                         
                         />
-                        <p>You have Selected Date: {format(selectedDate, 'PPPP')}</p>
-                       
+
                     </div>
                 </div>
             </div>
