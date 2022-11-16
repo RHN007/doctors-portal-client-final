@@ -10,7 +10,8 @@ const AppointmentOption = ({ option,setTreatment }) => {
                 <p>{slots.length>0?slots[0]:'Try Another Day'}</p>
                 <p>{slots.length} {slots.length>1?'spaces':'Spaces'} Available</p>
                 <div className="card-actions justify-center">
-                <label htmlFor="booking-modal" 
+                <label disabled= {slots.length === 0}
+                htmlFor="booking-modal" 
                 className="btn btn-primary text-white"
                 onClick={()=>setTreatment(option)}
                 >Book Appointment</label>
