@@ -7,12 +7,15 @@ const Appointment = () => {
     return (
         <div>
          
-            <AppointmentBanner selectedDate={selectedDate} setSelectedDate={setSelectedDate}   ></AppointmentBanner>
-            <AvailableAppointments 
+            <AppointmentBanner 
+            selectedDate={selectedDate} 
+            setSelectedDate={setSelectedDate}   
+            ></AppointmentBanner>
             
+            
+            
+            <AvailableAppointments
                 selectedDate={selectedDate}
-            
-            
             
             ></AvailableAppointments>
         </div>
