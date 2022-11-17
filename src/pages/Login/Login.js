@@ -21,9 +21,7 @@ const Login = () => {
         })
         .catch(err => {
             setUserError(err.message)
-            console.error(err.message)})
-
-       
+            console.error(err.message)})   
     }
 
     return (
