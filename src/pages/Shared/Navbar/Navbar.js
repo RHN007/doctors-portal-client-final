@@ -7,7 +7,7 @@ const Navbar = () => {
 
     const handleLogOut = () => {
         logOut()
-        .then(() => {})
+        .then(() => { })
         .catch(err => console.log(err))
     }
 

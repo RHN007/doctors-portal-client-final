@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import toast from 'react-hot-toast';
 
+
 const Signup = () => {
     useTitle('SingUp')
     const { register,formState: { errors }, handleSubmit } = useForm();
@@ -31,6 +32,7 @@ const Signup = () => {
             })
             .catch(error =>{ 
                 console.error(error)
+                toast.error(error.message)
                 setSignUpError('')
             })
     }
@@ -48,10 +50,28 @@ const saveUser = (name, email) => {
     .then(res => res.json())
     .then(data => {
         console.log('save User',data)
-        navigate('/')
+       getUserToken(email)
+    
     })
 
 }
+
+
+
+const getUserToken = email => {
+    fetch(`http://localhost:9000/jwt?email=${email}`)
+    .then(res => res.json())
+    .then(data => {
+        if(data.accessToken){
+            localStorage.setItem('accessToken', data.accessToken)
+            navigate('/')
+        }
+    })
+}
+
+
+
+
 
 
 
